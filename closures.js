@@ -103,9 +103,9 @@ function simpleFunc() {
     alert("hi");
 }
 
-function fnCounter(function, N) {
+function fnCounter(myFunc, N) {
     for (var i = 0; i < N; i++) {
-       function();
+       myFunc();
     }
     return "STOP";
 }
@@ -147,17 +147,37 @@ fnCounter(simpleFunc, 10);
 //Next Problem
 
 
+var myArray = []
+var func0 = function() {alert("0"); return 0;};
+var func1 = function() {alert("1"); return 1;};
+var func2 = function() {alert("2"); return 2;};
+var func3 = function() {alert("3"); return 3;};
+var func4 = function() {alert("4"); return 4;};
+var func5 = function() {alert("5"); return 5;};
+myArray.push(func0);
+myArray.push(func1);
+myArray.push(func2);
+myArray.push(func3);
+myArray.push(func4);
+myArray.push(func5);
 
+function funcArray(arr) {
+    for (var i = 0; i < arr.length; i++) {
+       arr[i]();
+    }
+}
+
+funcArray(myArray);
 /*
   Make the following code work
-
+*/
   funcArray[0]() //0
   funcArray[1]() //1
   funcArray[2]() //2
   funcArray[3]() //3
   funcArray[4]() //4
   funcArray[5]() //5
-
+/*
   *Hint: Don't let this fool you. Break down what's really happening here.
 */
 
