@@ -11,10 +11,12 @@ var outer = function(){
 
   //Code Here
 
+var inner = outer();
+
 //Once you do that, invoke inner.
 
   //Code Here
-
+inner();
 
 
 //Next problem
@@ -33,7 +35,9 @@ var callFriend = function(){
 //Do what you need to do in order to call your function and get 'Calling Jake at 435-215-9248' in your console.
 
   //Code Here
-
+var friendMessage = callFriend();
+var finalMessage = friendMessage("435-215-9248");
+console.log(finalMessage);
 
 
 //Next Problem
@@ -45,8 +49,17 @@ var callFriend = function(){
 */
 
   //Code Here
-  var count = makeCounter();
-  count() // 1
+
+var makeCounter = function() {
+    var counter = 0;
+   		 function countFunc() {
+       		 counter = counter + 1;
+       		 return counter;
+   		 }
+   	 return countFunc;
+}  
+var count = makeCounter();
+  count() // 1 ...add alerts to each of these function calls
   count() // 2
   count() // 3
   count() // 4
@@ -62,8 +75,21 @@ var callFriend = function(){
 */
 
   //Code Here
+function simpleFunc() {
+    alert("hi");
+}
 
+function secondFunc(simpleFunc) {
+    var count = 0;
+    for (var i = 0; i < 1; i++) {
+    	return function() {
+     	   simpleFunc();
+        }
+    }
+}
 
+var kyle = secondFunc(simpleFunc);
+(kyle());
 
 //Next Problem
 
@@ -73,7 +99,18 @@ var callFriend = function(){
   Now, similar to the last problem, write a function called 'fnCounter' that accepts two parameters. The first parameter will be an anonymous function and the second parameter, 'N', will be a number. Now, in 'fnCounter', allow the anonymous funciton to be invoked 'N' number of times. After it's been invoked 'N' number of times, return 'STOP'.
 */
 
+function simpleFunc() {
+    alert("hi");
+}
 
+function fnCounter(function, N) {
+    for (var i = 0; i < N; i++) {
+       function();
+    }
+    return "STOP";
+}
+
+fnCounter(simpleFunc, 10);
 
 //Next Problem
 
